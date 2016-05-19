@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.Compras
+namespace SuperERP.Compras.Service
 {
-    class Class1
+    class UsuarioService
     {
     }
 }

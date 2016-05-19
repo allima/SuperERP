@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SuperERP.DAL.Models;
 
-namespace SuperERP.Vendas
+namespace SuperERP.Compras.Repository
 {
-    public class CadastroCliente
+    class UsuarioRepository
     {
-        Categoria categoria = new Categoria();
     }
 }
