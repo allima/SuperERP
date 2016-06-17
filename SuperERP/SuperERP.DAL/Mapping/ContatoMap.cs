@@ -1,11 +1,11 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class ClienteFornecedorContatoMap : EntityTypeConfiguration<ClienteFornecedorContato>
+    public class ContatoMap : EntityTypeConfiguration<Contato>
     {
-        public ClienteFornecedorContatoMap()
+        public ContatoMap()
         {
             // Primary Key
             this.HasKey(t => t.ID);
@@ -27,18 +27,22 @@ namespace SuperERP.DAL.Models.Mapping
                 .HasMaxLength(30);
 
             // Table & Column Mappings
-            this.ToTable("ClienteFornecedorContato");
+            this.ToTable("Contato");
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.Nome).HasColumnName("Nome");
-            this.Property(t => t.ID_Fornecedor).HasColumnName("ID_Fornecedor");
+            this.Property(t => t.ID_PessoaJuridica).HasColumnName("ID_PessoaJuridica");
+            this.Property(t => t.ID_PessoaFisica).HasColumnName("ID_PessoaFisica");
             this.Property(t => t.Email).HasColumnName("Email");
             this.Property(t => t.Fone).HasColumnName("Fone");
             this.Property(t => t.Cargo).HasColumnName("Cargo");
 
             // Relationships
-            this.HasRequired(t => t.ClienteFornecedor)
-                .WithMany(t => t.ClienteFornecedorContatoes)
-                .HasForeignKey(d => d.ID_Fornecedor);
+            this.HasOptional(t => t.PessoaFisica)
+                .WithMany(t => t.Contatoes)
+                .HasForeignKey(d => d.ID_PessoaFisica);
+            this.HasOptional(t => t.PessoaJuridica)
+                .WithMany(t => t.Contatoes)
+                .HasForeignKey(d => d.ID_PessoaJuridica);
 
         }
     }
