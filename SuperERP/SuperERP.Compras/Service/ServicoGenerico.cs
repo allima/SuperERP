@@ -9,32 +9,40 @@ namespace SuperERP.Compras.Service
 {
     static class ServicoGenerico<T, TDTO> where T : class
     {
-        public static void Cadastrar(TDTO produto)
+        public static void Cadastrar(TDTO entidade)
         {
             Config.AutoMapperConfig.Inicializar();
             var repositorio = new DAL.Repositories.Repositorio<T>();
-            var novoProduto = Mapper.Map<TDTO, T>(produto);
-            repositorio.Cadastrar(novoProduto);
+            var novaEntidade = Mapper.Map<TDTO, T>(entidade);
+            repositorio.Cadastrar(novaEntidade);
         }
-        public static void Alterar(TDTO produto)
+        public static void Alterar(TDTO entidade)
         {
             Config.AutoMapperConfig.Inicializar();
             var repositorio = new DAL.Repositories.Repositorio<T>();
-            var novoProduto = Mapper.Map<TDTO, T>(produto);
-            repositorio.Alterar(novoProduto);
+            var novaEntidade = Mapper.Map<TDTO, T>(entidade);
+            repositorio.Alterar(novaEntidade);
         }
         public static ICollection<TDTO> Listar()
         {
             Config.AutoMapperConfig.Inicializar();
             var repositorio = new DAL.Repositories.Repositorio<T>();
-            var listaProdutoDTO = repositorio.ObterLista();
-            var estoqueDTO = Mapper.Map<ICollection<T>, ICollection<TDTO>>(listaProdutoDTO);
+            var listaEntidadeDTO = repositorio.ObterLista();
+            var estoqueDTO = Mapper.Map<ICollection<T>, ICollection<TDTO>>(listaEntidadeDTO);
             return estoqueDTO;
         }
-        public static void Deletar(int IDProduto)
+        public static void Deletar(int IdEntidade)
         {
             var repositorio = new DAL.Repositories.Repositorio<T>();
-            repositorio.Deletar(IDProduto);
+            repositorio.Deletar(IdEntidade);
+        }
+
+        public static TDTO BuscaPorId(int IdEntidade)
+        {
+            var repositorio = new DAL.Repositories.Repositorio<T>();
+            var entidade = repositorio.ObterPorEntidadePorId(IdEntidade);
+            var entidadeDTO = Mapper.Map<T, TDTO>(entidade);
+            return entidadeDTO;
         }
     }
 }
