@@ -24,8 +24,7 @@ namespace SuperERP.Compras.Config
             Mapper.CreateMap<ProdutoDTO, Produto>();
             Mapper.CreateMap<FuncionalidadeDTO, Funcionalidade>();
             Mapper.CreateMap<UsuarioDTO, Usuario>();
-   
-
+            Mapper.CreateMap<ClienteFornecedorDTO, ClienteFornecedor>();
         }
 
         public static void ConverteModelParaDTO()
@@ -35,6 +34,7 @@ namespace SuperERP.Compras.Config
             Mapper.CreateMap<Funcionalidade, FuncionalidadeDTO>();
             Mapper.CreateMap<Produto, ProdutoDTO>();
             Mapper.CreateMap<Usuario, UsuarioDTO>();
+            Mapper.CreateMap<ClienteFornecedorDTO, ClienteFornecedor>();
         }
     }
 }
