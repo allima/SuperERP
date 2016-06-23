@@ -253,6 +253,7 @@
     <Content Include="Views\VendasOrcamentos\Visualizar.cshtml" />
     <Content Include="Views\Categoria\Create.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

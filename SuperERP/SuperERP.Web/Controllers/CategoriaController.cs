@@ -38,33 +38,10 @@ namespace SuperERP.Web.Controllers
         }
 
         //
-        // GET: /Categoria/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Categoria/Edit/5
-        [HttpPost]
-        public ActionResult Edit(CategoriaDTO categoriaDTO)
-        {
-            try
-            {
-                Compras.Service.CategoriaService.Alterar(categoriaDTO);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
         // GET: /Categoria/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(Compras.Service.CategoriaService.BuscaPorId(id));
         }
 
         //
