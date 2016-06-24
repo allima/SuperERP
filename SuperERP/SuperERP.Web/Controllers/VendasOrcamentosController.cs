@@ -22,13 +22,40 @@ namespace SuperERP.Web.Controllers
 
         public ActionResult Novo()
         {
+            GerarViewBag();
             return View();
+        }
+
+        public ActionResult ExcluirVenda(int id)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                Vendas.Excluir.Venda(id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
         public ActionResult Novo(VendaContratoDTO vendaContrato)
         {
             return View();
+        }
+
+        public ActionResult Visualizar(int id)
+        {
+            //var listaDeVendasOrcamentos = SuperERP.Vendas.Listar.Venda();
+            //return View(listaDeVendasOrcamentos);
+            return View();
+        }
+
+        private void GerarViewBag()
+        {
+            ViewBag.Clientes = new SelectList(SuperERP.Vendas.Service.ClienteService.ListarClientes(), "Id", "Nome");             
         }
     }
 }
