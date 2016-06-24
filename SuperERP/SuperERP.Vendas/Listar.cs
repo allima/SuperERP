@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using SuperERP.DAL.Models;
 using SuperERP.DAL.Repositories;
+using SuperERP.Models;
 using SuperERP.Vendas.DTO;
 using System.Collections.Generic;
 
@@ -147,6 +147,15 @@ namespace SuperERP.Vendas
             Config.AutoMapperConfig.Inicializar();
             var vendaAtivosRep = new VendaAtivosRepository();
             var vendaAtivos = vendaAtivosRep.PegarVendaAtivos(id);
+            var vendaAtivosDTO = Mapper.Map<ICollection<Venda_Ativos>, ICollection<VendaAtivosDTO>>(vendaAtivos);
+            return vendaAtivosDTO;
+        }
+
+        public static ICollection<VendaAtivosDTO> VendasOrcamentos()
+        {
+            Config.AutoMapperConfig.Inicializar();
+            var vendaAtivosRep = new VendaAtivosRepository();
+            var vendaAtivos = vendaAtivosRep.ObterLista();
             var vendaAtivosDTO = Mapper.Map<ICollection<Venda_Ativos>, ICollection<VendaAtivosDTO>>(vendaAtivos);
             return vendaAtivosDTO;
         }

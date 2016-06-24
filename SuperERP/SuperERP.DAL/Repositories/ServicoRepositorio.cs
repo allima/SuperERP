@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using SuperERP.DAL.Models;
+using SuperERP.Models;
 
 namespace SuperERP.DAL.Repositories
 {
@@ -14,6 +14,10 @@ namespace SuperERP.DAL.Repositories
         public ICollection<Empresa> PegarEmpresa()
         {
             return dbContext.Empresas.ToList();
+        }
+
+        public ICollection<Servico> pegarServicos() {
+            return dbContext.Servicoes.ToList();
         }
 
     }

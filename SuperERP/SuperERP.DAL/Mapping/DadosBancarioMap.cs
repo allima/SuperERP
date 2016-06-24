@@ -1,11 +1,11 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class Dados_BancariosMap : EntityTypeConfiguration<Dados_Bancarios>
+    public class DadosBancarioMap : EntityTypeConfiguration<DadosBancario>
     {
-        public Dados_BancariosMap()
+        public DadosBancarioMap()
         {
             // Primary Key
             this.HasKey(t => t.ID);
@@ -24,17 +24,25 @@ namespace SuperERP.DAL.Models.Mapping
                 .HasMaxLength(10);
 
             // Table & Column Mappings
-            this.ToTable("Dados_Bancarios");
+            this.ToTable("DadosBancarios");
             this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
             this.Property(t => t.Banco).HasColumnName("Banco");
             this.Property(t => t.Conta_Corrente).HasColumnName("Conta_Corrente");
             this.Property(t => t.Agencia).HasColumnName("Agencia");
+            this.Property(t => t.ID_PessoaJuridica).HasColumnName("ID_PessoaJuridica");
+            this.Property(t => t.ID_PessoaFisica).HasColumnName("ID_PessoaFisica");
+            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
 
             // Relationships
-            this.HasRequired(t => t.Empresa)
-                .WithMany(t => t.Dados_Bancarios)
+            this.HasOptional(t => t.Empresa)
+                .WithMany(t => t.DadosBancarios)
                 .HasForeignKey(d => d.ID_Empresa);
+            this.HasOptional(t => t.PessoaFisica)
+                .WithMany(t => t.DadosBancarios)
+                .HasForeignKey(d => d.ID_PessoaFisica);
+            this.HasOptional(t => t.PessoaJuridica)
+                .WithMany(t => t.DadosBancarios)
+                .HasForeignKey(d => d.ID_PessoaJuridica);
 
         }
     }
