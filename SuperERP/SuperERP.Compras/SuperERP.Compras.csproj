@@ -49,6 +49,7 @@
     <Compile Include="DTO\EmpresaDTO.cs" />
     <Compile Include="DTO\FuncionalidadeDTO.cs" />
     <Compile Include="DTO\NcmDTO.cs" />
+    <Compile Include="DTO\ParcelamentoDTO.cs" />
     <Compile Include="DTO\PerfilDTO.cs" />
     <Compile Include="DTO\ProdutoDTO.cs" />
     <Compile Include="DTO\ProdutoFornecedorDTO.cs" />
