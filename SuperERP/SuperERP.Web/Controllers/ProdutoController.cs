@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SuperERP.Compras;
-using SuperERP.DAL.Repositories;
-using SuperERP.DAL.Models;
+using SuperERP.Compras.DTO;
+
 
 namespace SuperERP.Web.Controllers
 {
@@ -13,7 +13,8 @@ namespace SuperERP.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var lista = Compras.Service.ProdutoService.Listar();
+            return View(lista);
         }
 
         //
@@ -33,12 +34,11 @@ namespace SuperERP.Web.Controllers
         //
         // POST: /Produto/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProdutoDTO produto)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                Compras.Service.ProdutoService.Cadastrar(produto);
                 return RedirectToAction("Index");
             }
             catch
@@ -57,12 +57,11 @@ namespace SuperERP.Web.Controllers
         //
         // POST: /Produto/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ProdutoDTO produto)
         {
             try
             {
-                // TODO: Add update logic here
-
+                Compras.Service.ProdutoService.Alterar(produto);
                 return RedirectToAction("Index");
             }
             catch
@@ -71,8 +70,7 @@ namespace SuperERP.Web.Controllers
             }
         }
 
-        //
-        // GET: /Produto/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             return View();
@@ -81,27 +79,10 @@ namespace SuperERP.Web.Controllers
         //
         // POST: /Produto/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(ProdutoDTO produto)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        public ActionResult GetProdutos()
-        {
-            var lista = new List<Produto>();
-            var item = new Produto();
-            item.ID = 1;
-            lista.Add(item);
-            return Json(lista, JsonRequestBehavior.AllowGet);
+            Compras.Service.ProdutoService.Deletar(produto.ID);
+            return View();
         }
     }
 }
