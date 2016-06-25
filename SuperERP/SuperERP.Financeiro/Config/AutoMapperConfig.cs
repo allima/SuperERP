@@ -19,14 +19,15 @@ namespace SuperERP.Financeiro.Config
 
         public static void ConverteDTOParaModel()
         {
+
+            Mapper.CreateMap<View_Total_CompraDTO, View_Total_Compra>();
             Mapper.CreateMap<ViewCompraDTO, ViewCompra>();
             Mapper.CreateMap<ViewVendaDTO, ViewVenda>();
-
-
         }
 
         public static void ConverteModelParaDTO()
         {
+            Mapper.CreateMap<View_Total_Compra, View_Total_CompraDTO>();
             Mapper.CreateMap<ViewVenda, ViewVendaDTO>();
             Mapper.CreateMap<ViewCompra, ViewCompraDTO>();
         }
