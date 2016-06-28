@@ -12,7 +12,7 @@ INSERT INTO Perfil ( Nome)
 VALUES ('administrador');
 
 INSERT INTO Usuario ( ID_Perfil, ID_Empresa, Nome, Email, Senha)
-VALUES (1,3,'Ricardo dos Santos Almeida','ricsantos@gmail.com','oWCmO9O8');
+VALUES (1,3,'Ricardo dos Santos Almeida','ricsantos@gmail.com','*SECRET PASSWORD*');
 
 select * from Usuario;
 select * from Empresa;
