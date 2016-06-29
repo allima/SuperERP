@@ -108,6 +108,7 @@
     <Compile Include="Models\Venda_Ativos.cs" />
     <Compile Include="Models\ViewCompra.cs" />
     <Compile Include="Models\ViewVenda.cs" />
+    <Compile Include="Models\View_Total_Compra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoriaRepositorio.cs" />
     <Compile Include="Repositories\ClienteFornecedorRepository.cs" />
