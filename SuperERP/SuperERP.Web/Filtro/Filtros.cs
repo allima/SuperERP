@@ -17,11 +17,11 @@ namespace SuperERP.Web.Filtro
 
             if (Controller != "Home" || Action != "Login")
             {
-                if (RepositorioUsuarios.VerificaStatusUsuario() == null)
-                {
-                    FiltroDeContexto.RequestContext.HttpContext.Response.Redirect(
-                        "Home/Login?Url=" + FiltroDeContexto.HttpContext.Request.Url.LocalPath);
-                }
+                //if (RepositorioUsuarios.VerificaStatusUsuario() == null)
+                //{
+                //    FiltroDeContexto.RequestContext.HttpContext.Response.Redirect(
+                //        "Home/Login?Url=" + FiltroDeContexto.HttpContext.Request.Url.LocalPath);
+                //}
             }
         }
     }
