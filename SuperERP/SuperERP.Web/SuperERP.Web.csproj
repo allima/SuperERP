@@ -261,17 +261,17 @@
     <Content Include="Views\Categoria\Create.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Categoria\Delete.cshtml" />
+    <Content Include="Views\ContasPagar\Index.cshtml" />
+    <Content Include="Views\ContasBancarias\Index.cshtml" />
+    <Content Include="Views\Financeiro\Index.cshtml" />
+    <Content Include="Views\Extrato\Index.cshtml" />
+    <Content Include="Views\ContasReceber\Index.cshtml" />
+    <Content Include="Views\Movimentacoes\Index.cshtml" />
+    <Content Include="Views\PlanoCategoria\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\ContasBancarias\" />
-    <Folder Include="Views\ContasPagar\" />
-    <Folder Include="Views\ContasReceber\" />
-    <Folder Include="Views\Extrato\" />
-    <Folder Include="Views\Financeiro\" />
-    <Folder Include="Views\Movimentacoes\" />
-    <Folder Include="Views\PlanoCategoria\" />
     <Folder Include="Views\TotalCompra\" />
     <Folder Include="Views\Vendas\" />
   </ItemGroup>
