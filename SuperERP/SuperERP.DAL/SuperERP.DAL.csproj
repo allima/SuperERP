@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -123,6 +124,7 @@
     <Compile Include="Repositories\PessoaJuridicaRepository.cs" />
     <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="Repositories\Repositorio.cs" />
+    <Compile Include="Repositories\RepositorioCookies.cs" />
     <Compile Include="Repositories\ServicoRepositorio.cs" />
     <Compile Include="Repositories\StatusServicoRepositorio.cs" />
     <Compile Include="Repositories\VendaAtivosRepository.cs" />
